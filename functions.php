@@ -171,6 +171,7 @@ class CKEditor
 			$ckInstances[] = "baseHref     : '" . MODX_SITE_URL . "',";
 			$ckInstances[] = "contentsCss     : '{$editor_css_path}',";
 			$ckInstances[] = "height     : '{$params['height']}',";
+			$ckInstances[] = "language   : '{$params['language']}',";
 			if (!empty($params['format_tags']))
 			{
 				$ckInstances[] = "format_tags     : '{$params['format_tags']}',";
@@ -217,7 +218,7 @@ class CKEditor
 			case 'polish'       : $lc = 'pl';break;
 			case 'portuguese'   : $lc = 'pt';break;
 			case 'russian'      :
-			case 'russion-UTF8' : $lc = 'ru';break;
+			case 'russian-UTF8' : $lc = 'ru';break;
 			case 'spanish'      : $lc = 'es';break;
 			case 'svenska'      :
 			case 'svenska-utf8' : $lc = 'sv';break;
