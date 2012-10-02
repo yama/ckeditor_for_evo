@@ -5,7 +5,7 @@
  * CKEditor - RichText Editor Plugin
  *
  * @category 	plugin
- * @version 	3.6.3
+ * @version 	3.6.4
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @internal	@properties &format_tags=Format selector;text; &height=height;text;
  *
