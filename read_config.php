@@ -1,14 +1,20 @@
 <?php
-include_once '../../../manager/includes/config.inc.php';
-include_once(MODX_BASE_PATH . 'manager/includes/document.parser.class.inc.php');
+$self = 'assets/plugins/ckeditor/read_config.php';
+$base_path = str_replace($self,'',str_replace('\\','/',__FILE__));
+include_once($base_path . 'manager/includes/config.inc.php');
+include_once($base_path . 'manager/includes/document.parser.class.inc.php');
 $modx = new DocumentParser();
 $modx->getSettings();
 
 $ph['toolbar'] = (empty($modx->config['ck_editor_toolbar'])) ? 'modx' : $modx->config['ck_editor_toolbar'];
 
-if(preg_match('@[^0-9a-zA-Z\-_\.]@', $_GET['q'])) exit;
-$cke_config  = file_get_contents($_GET['q']);
-$cke_config .= file_get_contents('modx_config.js');
+$q = str_replace('\\','/',$_GET['q']);
+if(preg_match('@[^0-9a-zA-Z\-_\.]@', $q)) exit;
+if(preg_match('..', $q)) exit;
+if(preg_match('/', $q)) exit;
+$cke_path = "{$base_path}assets/plugins/ckeditor/";
+$cke_config  = file_get_contents($cke_path . $q);
+$cke_config .= file_get_contents($cke_path . 'modx_config.js');
 foreach($ph as $name => $value)
 {
 	$name = '[+' . $name . '+]';
