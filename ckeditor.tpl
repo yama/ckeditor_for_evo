@@ -5,7 +5,7 @@
  * CKEditor - RichText Editor Plugin
  *
  * @category 	plugin
- * @version 	3.6.4
+ * @version 	3.6.6
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @internal	@properties &format_tags=Format selector;text; &height=height;text;
  *
@@ -14,7 +14,7 @@
  *
  *
  * Original Written By Jeff Whitfield - April 30, 2007
- * Modify By yama - 2012-07-04
+ * Modify By yama - 2013-01-24
  */
 
 include_once $modx->config['base_path'] . 'assets/plugins/ckeditor/functions.php';
