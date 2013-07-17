@@ -10,8 +10,8 @@ $ph['toolbar'] = (empty($modx->config['ck_editor_toolbar'])) ? 'modx' : $modx->c
 
 $q = str_replace('\\','/',$_GET['q']);
 if(preg_match('@[^0-9a-zA-Z\-_\.]@', $q)) exit;
-if(preg_match('..', $q)) exit;
-if(preg_match('/', $q)) exit;
+if(strpos('..', $q)!==false) exit;
+if(strpos('/', $q)!==false) exit;
 $cke_path = "{$base_path}assets/plugins/ckeditor/";
 $cke_config  = file_get_contents($cke_path . $q);
 $cke_config .= file_get_contents($cke_path . 'modx_config.js');
@@ -20,4 +20,5 @@ foreach($ph as $name => $value)
 	$name = '[+' . $name . '+]';
 	$cke_config = str_replace($name, $value, $cke_config);
 }
+header("Content-type: application/x-javascript");
 echo $cke_config;
